@@ -38,8 +38,8 @@ RcppExport SEXP solo(const SEXP R_data, const SEXP R_map_settings) {
             dataset[i][j] = data_input(i, j);
     }}
 
-    printf("Creating a [%d x %d] size SOFM map\n", nodes, nodes);
-
+    printf("Creating a [%d x %d] size SOFM map for %d covariates\n", nodes, nodes, nvars);
+    printf("\nProgress:\n")
     // clusters dataset values into nodes and returns a weighted location map
     // of each instantaneous set of values in datasets
     som.predict_map(dataset, nodes, nvars, ndata, niter, width, sofm_weights);
